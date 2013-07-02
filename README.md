@@ -19,6 +19,7 @@ Flaws, Caveats, Limitations & Gotchas:
 
 * Only a simple constant-value continuum is supported at the moment.
 * Only emission-gaussian components are supported at the moment.
+* Undo/Redo/Apply doesn't work completely, consiering removing them.
 
 Dependencies:
 -------------
