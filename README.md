@@ -4,12 +4,21 @@ lpbuilder
 Stand-alone version of the line profile builder of grism.
 This is mainly to share a working version with the community that is easier to call and initialize than the full grism version and comes with suitable demo data. Development is still going on in grism, but of course suggestions etc. are welcome for this version too.
 
+![Screenshot](screenshot.png "Screenshot")
+
 Usage:
 ------
 
 For demonstration purposes, simply run the file as a script either calling `python profilebuilder.py` or using the `%run` magic from the IPython prompt, or whatever method one might prefer.
 
 For a bit of more tinkering, import the module and check the docstrings for usage.
+
+Flaws, Caveats, Limitations & Gotchas:
+-------------------------
+*Multiple. This module is in active development. I hope it can be useful as-is or as an inspiration, though.*
+
+* Only a simple constant-value continuum is supported at the moment.
+* Only emission-gaussian components are supported at the moment.
 
 Dependencies:
 -------------
