@@ -1,5 +1,8 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+# Copyright 2012-2013 Thoeger Emil Rivera-Thorsen.
+# Distributed under the terms of the GNU General Public License v. 3
+# http://www.gnu.org/licenses/gpl-3.0.html
 
 """ Standalone version of the profile builder class used in grism.
 The module consists of a class and a convenience function to load it quicker.
