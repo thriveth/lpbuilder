@@ -21,7 +21,8 @@ Dependencies:
 * Pandas
 * SciPy
 
-The former three are all part of the Enthought Tool Suite which can be installed from PyPI as `ets`, the latter two are both part of the standard [SciPy stack][1].
+The former three are all part of the [Enthought Tool Suite][2] which can be installed from PyPI as `ets`, the latter two are both part of the standard [SciPy stack][1].
 
 
 [1]: http://scipy.org
+[2]: http://code.enthought.com
