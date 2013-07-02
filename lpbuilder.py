@@ -135,6 +135,22 @@ class ProfileEditor(HasTraits):
     Go_Button = Button(label='Show model')
     plwin = Instance(GridContainer)
     select = Str
+    line_center = Float()
+
+    def _line_center_changed(self):
+        self.build_plot()  # Define a lightweight'er "update_plot" func later.
+        # Set ranges to change automatically when plot values change.
+        #plot.value_range.low_setting,\
+        #    plot.value_range.high_setting = (-minval, maxval)
+        #plot.index_range.low_setting,\
+        #    plot.index_range.high_setting = (self.line_center - 20.,
+        #                                     self.line_center + 20.)
+        #resplot.value_range.low_setting,\
+        #    resplot.value_range.high_setting = (-resmin, resmin)
+        #resplot.index_range.low_setting,\
+        #    resplot.index_range.high_setting = (plot.index_range.low_setting,
+        #                                        plot.index_range.high_setting)
+
 
     def _get_Resids(self):
         intmod = sp.interp(self.x, self.mod_x, self.Model)
@@ -316,11 +332,11 @@ class ProfileEditor(HasTraits):
         self.fitrange = fitrange
         if fitrange is None:
             self.fitrange = ()
-        self.line_center = linecen
         # Define index array for data:
         self.x = wavlens
         self.indata = indata
         self.errs = inerrs
+        self.line_center = linecen
         self.build_plot()
 
     ### =======================================================================
@@ -590,7 +606,6 @@ def load_profile(dataframe, centroid):
     errs = dataframe['errs'].values
 
     lb = ProfileEditor(wave, data, errs, centroid)
-    print "ProfileEditor instance created with the name 'lp'"
     lb.configure_traits()
     return lb
 
