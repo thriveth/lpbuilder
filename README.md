@@ -4,7 +4,7 @@ lpbuilder
 Stand-alone version of the line profile builder of grism.
 This is mainly to share a working version with the community that is easier to call and initialize than the full grism version and comes with suitable demo data. Development is still going on in grism, but of course suggestions etc. are welcome for this version too.
 
-![Screenshot](screenshot.png "Screenshot")
+![Screenshot](screenshot.png "Screenshot") ![Screenshot](screenshot.png "Screenshot")
 
 Usage:
 ------
