@@ -132,7 +132,7 @@ class ProfileEditor(HasTraits):
     # Define buttons for interface:
     add_profile = Button(label='Add component')
     remove_profile = Button(label='Remove latest')
-    Go_Button = Button(label='Show model')
+    Go_Button = Button(label='Fit model')
     plwin = Instance(GridContainer)
     select = Str
     line_center = Float()
