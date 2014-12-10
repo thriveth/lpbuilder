@@ -117,6 +117,7 @@ class ProfileEditor(HasTraits):
     # Define vars to regulate whether the above vars are locked
     #    down in the GUI:
     # TODO: Want to keep these options? Or is it just unnecessary clutter?
+    # ANSWER: Keep! For when fitting.
     LockSigma = Bool()
     LockCentr = Bool()
     LockHeigh = Bool()
@@ -397,8 +398,16 @@ class ProfileEditor(HasTraits):
         # Transform the internal dict holding the model to a Pandas dataframe
         # that the lmfit wrapper will digest:
         tofit = pd.DataFrame.from_dict(self.Components).T
+        print tofit
+        print tofit.index
         tofit.columns = ['Pos', 'Sigma', 'Ampl', 'Identifier']
         tofit['Line center'] = self.line_center
+        tofit.set_value('Contin', 'Lock', self.LockConti)
+        for lines in self.Components.keys():
+            if lines == 'Contin':
+                continue
+            tofit.set_value(lines, 'Lock', self.Locks[lines][:3])
+        print self.Components
         print tofit
 
         # Make sure no dataarrays belonging to the parent class are altered.
@@ -566,8 +575,8 @@ class ProfileEditor(HasTraits):
         #print 'This is the model importing method of ProfileEditor: '
         self.CompoList = sorted(self.Components.keys())[:-1]
         self.CompNum = len(self.CompoList)
-        for com in self.CompoList:
-            self.Locks[com] = [False] * 4
+        #for com in self.CompoList:
+        #    self.Locks[com] = [False] * 4
         #print self.Components
         self.continuum_estimate = self.Components['Contin']
         self._select_changed()

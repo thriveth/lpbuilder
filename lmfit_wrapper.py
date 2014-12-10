@@ -39,7 +39,8 @@ def load_params(indf):
         print comp
         if comp == 'Contin':
             varval = df.ix[comp]['Ampl'] + .0001
-            p.add('Contin_Ampl', value=varval, min=0.)
+            p.add('Contin_Ampl', value=varval, min=0.,
+                  vary=sp.invert(df.loc[comp]['Lock']))
             continue
         else:
             for col in df.columns:
@@ -50,16 +51,19 @@ def load_params(indf):
                     if col == 'Pos':
                         varmin = value - 10
                         varmax = value + 10
+                        vary = sp.invert(df.loc[comp]['Lock'][0])
                     elif col == 'Sigma':
                         varmin = 1e-8
                         varmax = 1e8
+                        vary = sp.invert(df.loc[comp]['Lock'][1])
                     elif col == 'Ampl':
                         varmin = 0.
                         varmax = None
+                        vary = sp.invert(df.loc[comp]['Lock'][2])
                     else:
                         varmin = None
                         varmax = None
-                    p.add(name, value, min=varmin, max=varmax)
+                    p.add(name, value, min=varmin, max=varmax, vary=vary)
     return p
 
 
