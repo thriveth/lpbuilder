@@ -9,7 +9,7 @@ This is mainly to share a working version with the community that is easier to c
 Usage:
 ------
 
-For demonstration purposes, simply run the file as a script either calling `python profilebuilder.py` or using the `%run` magic from the IPython prompt, or whatever method one might prefer.
+For demonstration purposes, simply run the file as a script either calling `python lpbuilder.py` or using the `%run` magic from the IPython prompt, or whatever method one might prefer.
 
 For a bit of more tinkering, import the module and check the docstrings for usage.
 
